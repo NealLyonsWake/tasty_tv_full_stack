@@ -29,11 +29,7 @@ const app = express();
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, 'client/build')));
-// Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
-}
+
 
 // ** MIDDLEWARE ** //
 const whitelist = ['http://localhost:3000', 'http://localhost:4000', 'https://tasty-tv-app.herokuapp.com']
@@ -81,6 +77,12 @@ app.use(passport.initialize)
 app.use(function (req, res, next) {
   next(createError(404));
 });
+
+// Handle React routing, return all requests to React app
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+}
 
 // error handler
 app.use(function (err, req, res, next) {
