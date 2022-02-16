@@ -20,7 +20,7 @@ const config = async () => {
   IMAGE_SIZE = poster_sizes[2]
 }
 
-router.get(`/recommend`, async function (req, res) {
+router.get(`/list`, async function (req, res) {
   config()
   const movieReply = await fetch(
     `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&certification_country=GB&certification.lte=18&include_adult=false&include_video=false&page=${pageNumber}&with_watch_monetization_types=flatrate`,
