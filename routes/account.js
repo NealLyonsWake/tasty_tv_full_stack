@@ -43,7 +43,7 @@ router.post('/register', (req, res) => {
 
 
 // login
-router.post("/login", function (req, res, next) {
+router.post("/login/", function (req, res, next) {
   if (req.body.username && req.body.password) {
     const username = req.body.username;
     const password = req.body.password;
@@ -83,7 +83,7 @@ router.post("/login", function (req, res, next) {
                 expires: new Date(new Date().getTime() + 60 * 60 * 1000)
               })
 
-              return res.redirect('/account/welcome')
+              return res.redirect('/account/welcome/')
           
             } else {
               res.status(401).json({
@@ -100,7 +100,7 @@ router.post("/login", function (req, res, next) {
   
 });
 
-router.get("/welcome", (req, res) => {
+router.get("/welcome/", (req, res) => {
   
   const { cookies } = req
   const jwt = cookies.token
