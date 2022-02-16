@@ -1,0 +1,53 @@
+.watchCard {
+    padding: 10px;
+    margin: 2px 2px;
+    text-align: center;
+    border: 3px solid #0c1727ff;
+    width: 310px;
+  }
+  
+  .head {
+      text-align: center;
+  }
+    
+  .banner img {
+    width: 80%;
+  }
+    
+  .review label textarea {
+    resize: none;
+    width: 95%;
+    height: 100px;
+    font: 14px "Open Sans", "Segoe UI", "Tahoma";
+    padding: 5px;
+  }
+
+.review{
+  text-align: center;
+}
+     
+  .buttons {
+    margin: 10px;
+  }
+  
+  .watchButtons {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font: 14px "Open Sans", "Segoe UI", "Tahoma";
+    color: white;
+    margin: 5px 10px;
+  }
+  
+  .editButton {
+    position: relative;
+    left: 128px;
+    bottom: 40px;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    font: 14px "Open Sans", "Segoe UI", "Tahoma";
+    color: white;
+    z-index: 0;
+  }
+  

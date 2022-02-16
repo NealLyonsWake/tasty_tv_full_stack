@@ -1,0 +1,27 @@
+.removeButton {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font: 14px "Open Sans", "Segoe UI", "Tahoma";
+    color: white;
+    margin: 15px 20px;
+  }
+  
+  .watchListContainer {
+    text-align: center;
+  }
+  
+  .cardContainer {
+    display: flex;
+    flex-direction: column;
+    
+    /* justify-content: center; */
+    align-items: center;
+    /* margin: 0px 20%; */
+  }
+  
+  .empty {
+    margin-top: 200px;
+    color: #e004e0;
+  }
+  

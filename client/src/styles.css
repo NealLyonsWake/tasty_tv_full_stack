@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    background-color: rgba(10, 17, 23);
+    font: 18px "Open Sans", "Segoe UI", "Tahoma";
+    color: white;
+  }
+  
+  .header {
+    text-align: center;
+    background-color: rgba(10, 17, 23);
+    position: sticky;
+    top: 160px;
+  }
+  
+
+  button {
+    cursor: pointer;
+    background-color: #e004e0;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #eb81eb;
+  }

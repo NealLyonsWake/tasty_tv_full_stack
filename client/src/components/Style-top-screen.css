@@ -1,0 +1,52 @@
+header {
+    position: sticky;
+    top: 0px;
+  
+    background-color: rgba(10, 17, 23);
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .logo {
+    width: 15%;
+    height: auto;
+    min-width: 160px;
+  }
+  
+  nav {
+    background-color: #0c1727ff;
+  }
+  
+  .navButton {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font: 18px "Open Sans", "Segoe UI", "Tahoma";
+    color: white;
+    width: 110px;
+    margin: 15px 20px;
+  }
+
+  .heading{
+    padding-bottom: 30px;
+    margin-bottom: 0px;
+  }
+
+  @media screen and (max-width: 618px) {
+    .navButton {
+    font: 12px "Open Sans", "Segoe UI", "Tahoma";
+    padding: 5px;
+    border-radius: 10px;
+    width: 70px;
+    margin: 5px 4px;
+    }
+
+    .heading{
+      padding-top: 10px;
+      padding-bottom: 20px;
+      margin: 2px;
+      font-size: 18px;
+    }
+
+  
+  }
