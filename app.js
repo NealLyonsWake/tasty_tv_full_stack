@@ -69,7 +69,7 @@ app.set('trust proxy', 1)
 // app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/recommend', indexRouter);
+app.use('/', indexRouter);
 app.use('/account', accountRouter);
 app.use('/watch', watchRouter);
 app.use('/review', reviewRouter);

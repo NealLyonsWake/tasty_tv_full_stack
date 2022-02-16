@@ -29,7 +29,7 @@ function RecommendList(props) {
 
     const handleRecommendCall = async () => {
         try {
-            await fetch('/recommend/list', requestOption).then(async (res) => {
+            await fetch('/recommend', requestOption).then(async (res) => {
                 const response = await res.json()
 
                 if (recommended.length >= 400) {
