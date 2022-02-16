@@ -6,7 +6,7 @@ const checkLogin = async () => {
     }
 
     try {
-        const res = await fetch('https://tasty-tv-api.herokuapp.com/account/welcome', requestOption)
+        const res = await fetch('/account/welcome', requestOption)
         const response = await res.json()
             // setLoggedIn(response.loggedIn)
 
