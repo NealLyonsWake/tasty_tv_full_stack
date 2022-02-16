@@ -21,6 +21,7 @@ const config = async () => {
 }
 
 router.get(`/recommend`, async function (req, res) {
+  try{
   config()
   const movieReply = await fetch(
     `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&certification_country=GB&certification.lte=18&include_adult=false&include_video=false&page=${pageNumber}&with_watch_monetization_types=flatrate`,
@@ -38,6 +39,10 @@ router.get(`/recommend`, async function (req, res) {
   })
   pageNumber = Math.floor(Math.random() * 500) + 1;
   res.send(movieSend)
+}
+catch{
+  console.log("An error happended during recommend request")
+}
 });
 
 
