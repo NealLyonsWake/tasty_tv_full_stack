@@ -80,7 +80,7 @@ app.use(function (req, res, next) {
 
 // Handle React routing, return all requests to React app
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'client/build/index.html'));
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 
