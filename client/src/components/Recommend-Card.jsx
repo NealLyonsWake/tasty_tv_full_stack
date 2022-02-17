@@ -16,7 +16,7 @@ function RecommendedCard(props) {
         // props.onAdd(props.id, props.title, props.poster, props.watched);
 
         // const endpoint = "/watch/requestmovie"
-        const endpoint = "/requestmovie"
+        const endpoint = "https://tasty-tv-app.herokuapp.com/watch/requestmovie"
 
         const requestOptions = {
             method: 'POST',
