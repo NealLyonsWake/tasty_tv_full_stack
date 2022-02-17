@@ -10,7 +10,7 @@ function AccountProfile(props) {
           }
 
         try {
-            await fetch('https://tasty-tv-api.herokuapp.com/account/signout', requestOption).then(async (res) => {
+            await fetch('/account/signout', requestOption).then(async (res) => {
                 const response = await res.json()
                 console.log(response.message)
                 

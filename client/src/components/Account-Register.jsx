@@ -37,7 +37,7 @@ function AccountRegister(props) {
         
         if(usernameLength >=3 && passwordLength >= 12){
 
-        const endpoint = "https://tasty-tv-api.herokuapp.com/account/register"
+        const endpoint = "/account/register"
        
         const requestOptions = {
             method: 'POST',
