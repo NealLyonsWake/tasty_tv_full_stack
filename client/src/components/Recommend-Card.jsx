@@ -15,9 +15,10 @@ function RecommendedCard(props) {
     const handleClickAddMov = async () => {
         // props.onAdd(props.id, props.title, props.poster, props.watched);
 
-        const endpoint = "/watch/requestmovie"
+        // const endpoint = "/watch/requestmovie"
+        const endpoint = "/requestmovie"
 
-           const requestOptions = {
+        const requestOptions = {
             method: 'POST',
             credentials: 'include',
             headers: {
