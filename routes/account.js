@@ -1,9 +1,9 @@
 require('dotenv').config()
-var express = require('express');
+const express = require('express');
 const jwt = require('jsonwebtoken');
 // const passport = require('passport')
 // const passportJWT = require('passport-jwt');
-var router = express.Router();
+const router = express.Router();
 const { User } = require('../models/user')
 
 let jwtOptions = { secretOrKey: process.env.SECRET } 
