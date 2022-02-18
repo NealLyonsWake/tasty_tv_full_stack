@@ -12,7 +12,8 @@ router.use(usersRouter)
 
 router.post('/requestmovie', async function (req, res) {
 
-    const endpoint = "/watch/addmovie"
+    // const endpoint = "/watch/addmovie"
+    const endpoint = "https://tasty-tv-app.herokuapp.com/watch/addmovie"
     const { cookies } = req
     const jwt = cookies.token
     const user = cookies.user
