@@ -207,10 +207,10 @@ function TopScreen() {
                     path="/"
                     element={<RecommendList user={user} />}
                 />
-                {/* <Route
+                <Route
                     path="/tastyrandoms"
                     element={<RecommendList user={user} />}
-                /> */}
+                />
                 <Route
                     path="/watchlist"
                     element={
