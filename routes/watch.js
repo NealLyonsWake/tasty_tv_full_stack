@@ -93,7 +93,7 @@ router.post('/addmovie', passport.authenticate("jwt", { session: false }), async
 })
 
 router.get('/requestwatchlist', async (req, res) => {
-    const endpoint = "/watch/getwatchlist/"
+    const endpoint = "https://tasty-tv-app.herokuapp.com/watch/getwatchlist/"
     const { cookies } = req
     const jwt = cookies.token
     const user = cookies.user
