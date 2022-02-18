@@ -193,7 +193,7 @@ router.delete('/deletesingle/:id/:user', passport.authenticate("jwt", { session:
 });
 
 router.delete('/requestdeleteall', async (req, res) => {
-    const endpoint = "/watch/deleteall/"
+    const endpoint = "https://tasty-tv-app.herokuapp.com/watch/deleteall/"
     const { cookies } = req
     const jwt = cookies.token
     const user = cookies.user
@@ -244,7 +244,7 @@ router.delete('/deleteall/:user', passport.authenticate("jwt", { session: false 
 
 
 router.patch('/requestcheckwatched/:id', async (req, res) => {
-    const endpoint = "/watch/checkwatched/"
+    const endpoint = "https://tasty-tv-app.herokuapp.com/watch/checkwatched/"
     const { cookies } = req
     const jwt = cookies.token
     const user = cookies.user
@@ -312,7 +312,7 @@ router.patch('/updatereview/:id/:user', async function (req, res) {
 
 
 router.delete('/requestremovewatched', async (req, res) => {
-    const endpoint = "/watch/removewatched/"
+    const endpoint = "https://tasty-tv-app.herokuapp.com/watch/removewatched/"
     const { cookies } = req
     const jwt = cookies.token
     const user = cookies.user
