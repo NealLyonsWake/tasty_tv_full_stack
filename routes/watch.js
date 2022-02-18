@@ -142,7 +142,7 @@ router.get('/getwatchlist/:user', passport.authenticate("jwt", { session: false 
 });
 
 router.delete('/requestdeletesingle/:id', async (req, res) => {
-    const endpoint = "/watch/deletesingle/"
+    const endpoint = "https://tasty-tv-app.herokuapp.com/watch/deletesingle/"
     const { cookies } = req
     const jwt = cookies.token
     const user = cookies.user
