@@ -7,9 +7,10 @@ const logger = require('morgan');
 const passport = require('passport');
 const cors = require('cors')
 const mongoose = require('mongoose')
+const corsOptions = require('./middleware/cors')
 
 require('./middleware/auth')
-require('./middleware/cors')
+
 
 const mongooseURI = process.env.MONGODB
 mongoose.connect(mongooseURI)

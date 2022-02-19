@@ -1,4 +1,3 @@
-
 const whitelist = ['http://localhost:3000', 'http://localhost:4000', 'https://tasty-tv-app.herokuapp.com']
 const corsOptions = {
   origin: function (origin, callback) {
@@ -14,3 +13,4 @@ const corsOptions = {
   credentials: true
 }
 
+module.exports = corsOptions 
