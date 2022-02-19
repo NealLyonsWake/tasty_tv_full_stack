@@ -32,6 +32,10 @@ header {
     margin-bottom: 0px;
   }
 
+  .signedIn{
+    color: #e004e0
+    }
+
   @media screen and (max-width: 618px) {
     .navButton {
     font: 12px "Open Sans", "Segoe UI", "Tahoma";
@@ -41,9 +45,7 @@ header {
     margin: 5px 4px;
     }
 
-  b{
-  color: #e004e0
-  }
+   
 
     .heading{
       padding-top: 10px;
