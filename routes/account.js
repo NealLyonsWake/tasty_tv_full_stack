@@ -77,7 +77,7 @@ router.post("/login", function (req, res, next) {
               })
 
               res.cookie('user', user.username, {
-                httpOnly: false,
+                httpOnly: true,
                 path: '/',
                 secure: true,
                 expires: new Date(new Date().getTime() + 60 * 60 * 1000)
