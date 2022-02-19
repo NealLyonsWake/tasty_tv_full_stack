@@ -7,7 +7,7 @@ const logger = require('morgan');
 const passport = require('passport');
 const cors = require('cors')
 const mongoose = require('mongoose')
-const corsOptions = require('./middleware/cors')
+// const corsOptions = require('./middleware/cors')
 
 require('./middleware/auth')
 
@@ -29,20 +29,20 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 // ** MIDDLEWARE ** //
-// const whitelist = ['http://localhost:3000', 'http://localhost:4000', 'https://tasty-tv-app.herokuapp.com']
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     console.log("** Origin of request " + origin)
-//     if (whitelist.indexOf(origin) !== -1 || !origin) {
-//       console.log("Origin acceptable")
-//       callback(null, true)
-//     } else {
-//       console.log("Origin rejected")
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   },
-//   credentials: true
-// }
+const whitelist = ['http://localhost:3000', 'http://localhost:4000', 'https://tasty-tv-app.herokuapp.com']
+const corsOptions = {
+  origin: function (origin, callback) {
+    console.log("** Origin of request " + origin)
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      console.log("Origin acceptable")
+      callback(null, true)
+    } else {
+      console.log("Origin rejected")
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
+  credentials: true
+}
 
 app.use(cors(corsOptions))
 

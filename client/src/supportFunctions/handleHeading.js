@@ -1,7 +1,7 @@
 function handleHeading(location, user) {
     // Set the heading 
     if (location.pathname === '/tastyrandoms' || location.pathname === '/') {
-        return user ? <h2 className='heading'>{`Hey ${user}, your Tasty Randoms`}</h2>
+        return user ? <h2 className='heading'><em className="signedIn">{`Hey ${user}`}</em>, your Tasty Randoms</h2>
             : <h2 className='heading'>Tasty Randoms</h2>
     }
     else if (location.pathname === '/watchlist') {

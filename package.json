@@ -5,7 +5,7 @@
   "scripts": {
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www"
+    "devstart": "nodemon ./bin/www" 
   },
   "dependencies": {
     "cookie": "^0.4.1",
