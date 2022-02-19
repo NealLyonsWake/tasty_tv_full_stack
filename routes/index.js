@@ -34,14 +34,15 @@ router.get(`/recommend`, async function (req, res) {
       id: item.id,
       title: item.title,
       posterURL: `${IMAGE_BASE}${IMAGE_SIZE}${item.poster_path}`,
-      overview: item.overview
+      overview: item.overview,
+      popularity: item.popularity
     }
   })
   pageNumber = Math.floor(Math.random() * 500) + 1;
   res.send(movieSend)
 }
-catch{
-  console.log("An error happended during recommend request")
+catch (e){
+  res.send(e, "Unable to retrieve An error happend during recommend request")
 }
 });
 
