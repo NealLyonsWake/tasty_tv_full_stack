@@ -53,6 +53,7 @@ function RecommendList(props) {
                                 displayTitle: displayTitle,
                                 poster: movie.posterURL,
                                 overview: movie.overview,
+                                popularity: movie.popularity,
                                 watched: false
                             }
                         ];
@@ -82,6 +83,8 @@ function RecommendList(props) {
                                 poster={mov.poster}
                                 onAdd={props.addMov}
                                 watched={mov.watched}
+                                overview={mov.overview}
+                                popularity={mov.popularity}
                             />
                         );
                     })}
