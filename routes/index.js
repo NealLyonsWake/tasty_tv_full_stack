@@ -35,7 +35,7 @@ router.get(`/recommend`, async function (req, res) {
       title: item.title,
       posterURL: `${IMAGE_BASE}${IMAGE_SIZE}${item.poster_path}`,
       overview: item.overview,
-      popularity: item.popularity
+      user_score: item.vote_average
     }
   })
   pageNumber = Math.floor(Math.random() * 500) + 1;
