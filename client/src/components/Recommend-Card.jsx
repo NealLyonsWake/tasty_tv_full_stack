@@ -1,7 +1,10 @@
 import './Style-recommend-card.css'
 import NoPoster from '../img/no-poster.png'
+import React, { useState } from 'react'
+
 
 function RecommendedCard(props) {
+
 
     const posterCheck = () => {
         if (props.poster.includes('null')) {
@@ -13,9 +16,18 @@ function RecommendedCard(props) {
     }
 
     const handleClickAddMov = async () => {
-        // props.onAdd(props.id, props.title, props.poster, props.watched);
 
-        // const endpoint = "/watch/requestmovie"
+        props.onAdd(
+            props.user,
+            props.id,
+            props.overview,
+            props.user_score,
+            props.title,
+            props.poster,
+            props.watched
+        );
+
+        // const endpoint = "/watch/requestmovie/"
         const endpoint = "/watch/requestmovie/"
 
         const requestOptions = {
@@ -45,9 +57,10 @@ function RecommendedCard(props) {
         catch (e) {
             console.log(e, "Error connecting to server")
         }
-
-
     }
+
+
+
 
     return props.poster !== undefined ?
         (
@@ -55,6 +68,8 @@ function RecommendedCard(props) {
                 {posterCheck()}
                 <div className='addContainer'><button className='addButton' onClick={handleClickAddMov}>Add to Watch List</button></div>
                 <h4 className='title'>{props.displayTitle}</h4>
+
+
             </div>
         ) : (
             null

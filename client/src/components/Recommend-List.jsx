@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import RecommendedCard from "./Recommend-Card";
 import "./Style-recommend-list.css";
+import DetailsCard from './Details-Card'
 
 
 function RecommendList(props) {
     const [recommended, setRecommended] = useState([{}]);
+    const [showDetails, setShowDetails] = useState(false);
+    const [movieDetails, setMovieDetails] = useState({});
 
     const requestOption = {
         method: 'GET',
@@ -28,8 +31,11 @@ function RecommendList(props) {
 
 
     const handleRecommendCall = async () => {
+
         try {
-            await fetch('/recommend', requestOption).then(async (res) => {
+            const endpoint = window.location.hostname === 'localhost' ? 'https://tasty-tv-app.herokuapp.com/recommend'
+                : '/recommend'
+            await fetch(endpoint, requestOption).then(async (res) => {
                 const response = await res.json()
 
                 if (recommended.length >= 400) {
@@ -53,7 +59,7 @@ function RecommendList(props) {
                                 displayTitle: displayTitle,
                                 poster: movie.posterURL,
                                 overview: movie.overview,
-                                popularity: movie.popularity,
+                                user_score: movie.user_score,
                                 watched: false
                             }
                         ];
@@ -67,11 +73,53 @@ function RecommendList(props) {
             console.log('Error', err)
         }
     }
+
+    const detailsCheck = (
+        user,
+        id,
+        overview,
+        user_score,
+        title,
+        poster,
+        watched) => {
+
+        setShowDetails(true)
+        setMovieDetails({
+        user: user,
+        id: id,
+        overview: overview,
+        user_score: user_score,
+        name: title,
+        poster: poster,
+        watched: watched
+        })
+    }
+
+    const showDetailsCard = () =>{
+        if (showDetails) {
+            return (
+                <div className='detailsCard'>
+                    <DetailsCard
+                        id={movieDetails.id}
+                        poster={movieDetails.poster}
+                        name={movieDetails.name}
+                        user_score={movieDetails.user_score}
+                        overview={movieDetails.overview}
+                    />
+
+                </div>
+            )
+        }
+        else { return null }
+    }
+
+
     return (
         <div className="recommended">
-                    
+
             <div className="content-container">
                 <div className="recoList">
+                {showDetailsCard()}
                     {recommended.map((mov, index) => {
                         return (
                             <RecommendedCard
@@ -81,17 +129,17 @@ function RecommendList(props) {
                                 title={mov.title}
                                 displayTitle={mov.displayTitle}
                                 poster={mov.poster}
-                                onAdd={props.addMov}
+                                onAdd={detailsCheck}
                                 watched={mov.watched}
                                 overview={mov.overview}
-                                popularity={mov.popularity}
+                                user_score={mov.user_score}
                             />
                         );
                     })}
                 </div>
                 <button className="apiCall" onClick={handleRecoRequest}>Spin</button>
             </div>
-            
+
         </div>
     )
 
