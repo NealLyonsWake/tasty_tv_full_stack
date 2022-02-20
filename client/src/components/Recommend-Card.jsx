@@ -8,16 +8,16 @@ function RecommendedCard(props) {
 
     const posterCheck = () => {
         if (props.poster.includes('null')) {
-            return (<img className='poster' src={NoPoster} alt={`Poster for the movie, ${props.title}`} />)
+            return (<img className='poster' src={NoPoster} alt={`Poster for the movie, ${props.title}`} onClick={handleCallDetails} />)
         }
         else {
-            return (<img className='poster' src={props.poster} alt={`Poster for the movie, ${props.title}`} />)
+            return (<img className='poster' src={props.poster} alt={`Poster for the movie, ${props.title}`} onClick={handleCallDetails} />)
         }
     }
 
-    const handleClickAddMov = async () => {
+    const handleCallDetails = async () => {
 
-        props.onAdd(
+        props.callDetails(
             props.user,
             props.id,
             props.overview,
@@ -26,38 +26,38 @@ function RecommendedCard(props) {
             props.poster,
             props.watched
         );
-
-        // const endpoint = "/watch/requestmovie/"
-        const endpoint = "/watch/requestmovie/"
-
-        const requestOptions = {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                Accept: '*/*',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                user: props.user,
-                id: props.id,
-                name: props.title,
-                poster: props.poster,
-                watched: props.watched,
-                review: "",
-                posted: false
-            })
-        };
-        try {
-            const res = await fetch(endpoint, requestOptions)
-            const response = await res.json()
-            alert(response.message)
-            // handleLogin(response.loggedIn, response.user)
         }
+    //     // const endpoint = "/watch/requestmovie/"
+    //     const endpoint = "/watch/requestmovie/"
 
-        catch (e) {
-            console.log(e, "Error connecting to server")
-        }
-    }
+    //     const requestOptions = {
+    //         method: 'POST',
+    //         credentials: 'include',
+    //         headers: {
+    //             Accept: '*/*',
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             user: props.user,
+    //             id: props.id,
+    //             name: props.title,
+    //             poster: props.poster,
+    //             watched: props.watched,
+    //             review: "",
+    //             posted: false
+    //         })
+    //     };
+    //     try {
+    //         const res = await fetch(endpoint, requestOptions)
+    //         const response = await res.json()
+    //         alert(response.message)
+    //         // handleLogin(response.loggedIn, response.user)
+    //     }
+
+    //     catch (e) {
+    //         console.log(e, "Error connecting to server")
+    //     }
+    // }
 
 
 
@@ -66,8 +66,8 @@ function RecommendedCard(props) {
         (
             <div className='movCard'>
                 {posterCheck()}
-                <div className='addContainer'><button className='addButton' onClick={handleClickAddMov}>Add to Watch List</button></div>
-                <h4 className='title'>{props.displayTitle}</h4>
+                {/* <div className='addContainer'><button className='addButton' onClick={handleClickAddMov}>Add to Watch List</button></div> */}
+                {/* <h4 className='title'>{props.displayTitle}</h4> */}
 
 
             </div>

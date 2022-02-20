@@ -74,6 +74,11 @@ function RecommendList(props) {
         }
     }
 
+    const cancel = () =>{
+        setShowDetails(false)
+        setMovieDetails({})
+    }
+
     const detailsCheck = (
         user,
         id,
@@ -100,11 +105,15 @@ function RecommendList(props) {
             return (
                 <div className='detailsCard'>
                     <DetailsCard
+                        user={movieDetails.user}
                         id={movieDetails.id}
                         poster={movieDetails.poster}
-                        name={movieDetails.name}
+                        title={movieDetails.name}
                         user_score={movieDetails.user_score}
                         overview={movieDetails.overview}
+                        watched={movieDetails.watched}
+                        cancel={cancel}
+                        
                     />
 
                 </div>
@@ -129,7 +138,7 @@ function RecommendList(props) {
                                 title={mov.title}
                                 displayTitle={mov.displayTitle}
                                 poster={mov.poster}
-                                onAdd={detailsCheck}
+                                callDetails={detailsCheck}
                                 watched={mov.watched}
                                 overview={mov.overview}
                                 user_score={mov.user_score}

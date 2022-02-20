@@ -29,6 +29,76 @@
     color: white;
   }
 
+.detailsCard{
+  position: fixed;
+  display: grid;
+  grid-template: 
+  "poster name" 75px
+  "poster score" 35px
+  "poster addButton" 40px
+  "overview overview" 150px/
+  100px 200px;
+  
+  height: 290px;
+  width: 300px;
+  top: 60%;
+  left: 50%;
+  margin-top: -160px;
+  margin-left: -156px;
+  padding: 5px;
+  background-color: #0c1727ff;
+  border: 2px solid #e004e0;
+  border-radius: 20px;
+  z-index: 1;
+  text-align: left;
+  
+}
+.detailsPoster img{
+  display: block;
+  height: 150px;
+  width: auto;
+  border-radius: 10px;
+}
+
+.detailsPoster{
+  grid-area: poster;
+padding: 4px;
+margin: 4px;
+}
+
+.detailsName{
+  grid-area: name;
+  padding-left: 20px;
+  margin: 0px;
+}
+
+
+.detailsScore{
+grid-area: score;
+padding-left: 20px;
+margin: 4px;
+}
+ 
+.detailsAddButton{
+  grid-area: addButton;
+  padding-left: 20px;
+margin: 4px;
+margin-top: 15px;
+}
+
+.detailsOverview{
+  grid-area: overview;
+  text-align: left;
+  padding: 4px;
+margin: 4px;
+}
+
+.cancelButton{
+  position: relative;
+  top: -315px;
+  left: 275px;
+}
+
   @media screen and (max-width: 1500px) {
     .apiCall{
       right: 150px;
