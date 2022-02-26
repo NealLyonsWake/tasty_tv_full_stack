@@ -17,31 +17,31 @@ function Reviews(props) {
     props.updateReviews(response)
   }
 
-  const cancel = () =>{
+  const cancel = () => {
     setShowDetails(false)
     setMovieDetails({})
-}
+  }
 
-const detailsCheck = (
-  user,
-  id,
-  overview,
-  user_score,
-  title,
-  poster,
-  watched) => {
+  const detailsCheck = (
+    user,
+    id,
+    overview,
+    user_score,
+    title,
+    poster,
+    watched) => {
 
-  setShowDetails(true)
-  setMovieDetails({
-  user: user,
-  id: id,
-  overview: overview,
-  user_score: user_score,
-  name: title,
-  poster: poster,
-  watched: watched
-  })
-}
+    setShowDetails(true)
+    setMovieDetails({
+      user: user,
+      id: id,
+      overview: overview,
+      user_score: user_score,
+      name: title,
+      poster: poster,
+      watched: watched
+    })
+  }
 
   const showDetailsCard = () => {
     if (showDetails) {
@@ -95,6 +95,8 @@ const detailsCheck = (
               author={post.author}
               title={post.name}
               poster={post.poster}
+              overview={post.overview}
+              user_score={post.user_score}
               review={post.review}
               comment={post.comment}
               commentEdit={props.commentEdit}
