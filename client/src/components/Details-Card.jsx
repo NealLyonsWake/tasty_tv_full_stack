@@ -13,8 +13,8 @@ function DetailsCard(props) {
     }
 
     const overviewCheck = () => {
-        if (props.overview.length >=250){
-            const shortenedOverview = props.overview.substring(0,249) + "..."
+        if (props.overview.length >= 250) {
+            const shortenedOverview = props.overview.substring(0, 249) + "..."
             return shortenedOverview
         }
         else {
@@ -71,15 +71,22 @@ function DetailsCard(props) {
         }
     }
 
-
-
+    const manageTitle = () => {
+        if (props.title.length >= 48) {
+            const result = `${props.title.substr(0, 47)}...`
+            return result
+        }
+        else {
+            return props.title
+        }
+    }
     return (
         <div className="detailsCard">
             <div className="detailsPoster">{posterCheck()}</div>
             <div className="cancelButton"><button className='addButton' onClick={cancelDetails}>X</button></div>
-            <div className="detailsName"><h4>{props.title}</h4></div>
+            <div className="detailsName"><h4>{manageTitle()}</h4></div>
             <div className="detailsScore"><p>User Score: <i>{props.user_score * 10}%</i></p></div>
-            <div className='detailsAddButton'><button className='addButton'onClick={handleClickAddMov} >Add to Watch List</button></div>
+            <div className='detailsAddButton'><button className='addButton' onClick={handleClickAddMov} >Add to Watch List</button></div>
             <div className="detailsOverview"><p>{overviewCheck()}</p></div>
         </div>
     )

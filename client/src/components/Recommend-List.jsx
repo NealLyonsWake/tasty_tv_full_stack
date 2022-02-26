@@ -21,6 +21,8 @@ function RecommendList(props) {
 
 
     const handleRecoRequest = () => {
+        setShowDetails({})
+        setShowDetails(false)
         handleRecommendCall()
 
         window.scrollTo({
