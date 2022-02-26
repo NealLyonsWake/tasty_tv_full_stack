@@ -7,7 +7,9 @@ let movieSchema = new mongoose.Schema({
    poster: String,
    watched: Boolean,
    review: String,
-   posted: Boolean
+   posted: Boolean,
+   user_score: Number,
+   overview: String
 });
 
 const Movie = mongoose.model('Movie', movieSchema)

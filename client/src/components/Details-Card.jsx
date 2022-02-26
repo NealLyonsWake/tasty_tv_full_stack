@@ -56,7 +56,9 @@ function DetailsCard(props) {
                 poster: props.poster,
                 watched: props.watched,
                 review: "",
-                posted: false
+                posted: false,
+                user_score: props.user_score,
+                overview: props.overview
             })
         };
         try {
