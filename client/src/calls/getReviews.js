@@ -16,6 +16,7 @@ const handleReviewCall = async () => {
         try {
             const res = await fetch(endpoint, requestOptions)
             const response = await res.json()
+            console.log(response)
             return response            
         }
         catch (e) {
