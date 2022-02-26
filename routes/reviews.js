@@ -40,7 +40,9 @@ router.post('/requestreview', async function (req, res) {
                     watched: req.body.watched,
                     review: req.body.review,
                     posted: req.body.posted,
-                    comment: req.body.comment
+                    comment: req.body.comment,
+                    user_score: req.body.user_score,
+                    overview: req.body.overview
                 })
             }
 
@@ -109,7 +111,9 @@ router.post('/addreview', passport.authenticate("jwt", { session: false }), asyn
             watched: req.body.watched,
             review: req.body.review,
             posted: !req.body.posted,
-            comment: req.body.comment
+            comment: req.body.comment,
+            user_score: req.body.user_score,
+            overview: req.body.overview
         });
         await review.save();
 
