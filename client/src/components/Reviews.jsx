@@ -1,5 +1,5 @@
 import "./Style-reviews.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ReviewCard from "./Review-Card";
 import handleReviewCall from '../calls/getReviews'
 import DetailsCard from "./Details-Card";
