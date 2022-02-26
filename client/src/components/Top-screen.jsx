@@ -48,8 +48,8 @@ function TopScreen() {
     }
 
     const updateReviews = (reviews) => {
-        console.log(reviews)
         setPostedReviews(reviews)
+        console.log(postedReviews)
     }
 
     const commentEdit = (_id, e) => {
