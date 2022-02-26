@@ -48,6 +48,7 @@ function TopScreen() {
     }
 
     const updateReviews = (reviews) => {
+        console.log(reviews)
         setPostedReviews(reviews)
     }
 
