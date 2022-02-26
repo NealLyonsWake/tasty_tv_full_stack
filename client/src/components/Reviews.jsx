@@ -91,7 +91,9 @@ function Reviews(props) {
           <div className="reviewsContainer">
             <ReviewCard
               key={index}
+              user={props.user}
               _id={post._id}
+              id={post.id}
               author={post.author}
               title={post.name}
               poster={post.poster}

@@ -49,7 +49,6 @@ function TopScreen() {
 
     const updateReviews = (reviews) => {
         setPostedReviews(reviews)
-        console.log(postedReviews)
     }
 
     const commentEdit = (_id, e) => {
@@ -234,7 +233,12 @@ function TopScreen() {
                 />
                 <Route
                     path="/reviews"
-                    element={<Reviews postedReviews={postedReviews} loggedIn={loggedIn} user={user} commentEdit={commentEdit} updateReviews={updateReviews} />}
+                    element={<Reviews 
+                        postedReviews={postedReviews} 
+                        loggedIn={loggedIn} 
+                        user={user} 
+                        commentEdit={commentEdit} 
+                        updateReviews={updateReviews} />}
 
                 />
                 <Route
