@@ -1,23 +1,20 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const jwt = require('jsonwebtoken');
-// const passport = require('passport')
-// const passportJWT = require('passport-jwt');
 const router = express.Router();
-const { User } = require('../models/user')
+const { User } = require('../models/user');
 
-let jwtOptions = { secretOrKey: process.env.SECRET } 
+let jwtOptions = { secretOrKey: process.env.SECRET }; 
 
 // register
 router.post('/register', (req, res) => {
-  if (
-    req.body.username &&
-    req.body.password
-  ) {
+
+  if (req.body.username && req.body.password) // If user has entered a username and password
+   {
     User.findOne({ username: req.body.username },
       (err, user) => {
         if (err) {
-          res.status(401).json(err);
+          res.status(401).json(err); 
         } else if (!user) {
           let newUser = new User({
             username: req.body.username
