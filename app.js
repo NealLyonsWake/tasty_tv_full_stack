@@ -34,7 +34,7 @@ Partly set up to account for a work around to be able to exchange cookies betwee
 This is due to Heroku being on the Public Suffix List and therefore different origins
 of *.herokuapp.com will not be able to exchange cookies.
 */
-const whitelist = ['http://localhost:3000', 'http://localhost:4000', 'https://tasty-tv-app.herokuapp.com'];
+const whitelist = ['http://localhost:3000', 'http://localhost:4000', 'https://tasty-tv.netlify.app'];
 const corsOptions = {
   origin: function (origin, callback) {
     console.log("Origin of request" + origin);

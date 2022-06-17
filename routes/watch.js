@@ -13,7 +13,7 @@ router.use(usersRouter)
 router.post('/requestmovie', async function (req, res) {
 
     // const endpoint = "/watch/addmovie"
-    const endpoint = "https://tasty-tv-app.herokuapp.com/watch/addmovie"
+    const endpoint = "https://tasty-tv.netlify.app/watch/addmovie"
     const { cookies } = req
     const jwt = cookies.token
     const user = cookies.user
@@ -97,7 +97,7 @@ router.post('/addmovie', passport.authenticate("jwt", { session: false }), async
 })
 
 router.get('/requestwatchlist', async (req, res) => {
-    const endpoint = "https://tasty-tv-app.herokuapp.com/watch/getwatchlist/"
+    const endpoint = "https://tasty-tv.netlify.app/watch/getwatchlist/"
     const { cookies } = req
     const jwt = cookies.token
     const user = cookies.user
@@ -146,7 +146,7 @@ router.get('/getwatchlist/:user', passport.authenticate("jwt", { session: false 
 });
 
 router.delete('/requestdeletesingle/:id', async (req, res) => {
-    const endpoint = "https://tasty-tv-app.herokuapp.com/watch/deletesingle/"
+    const endpoint = "https://tasty-tv.netlify.app/watch/deletesingle/"
     const { cookies } = req
     const jwt = cookies.token
     const user = cookies.user
@@ -197,7 +197,7 @@ router.delete('/deletesingle/:id/:user', passport.authenticate("jwt", { session:
 });
 
 router.delete('/requestdeleteall', async (req, res) => {
-    const endpoint = "https://tasty-tv-app.herokuapp.com/watch/deleteall/"
+    const endpoint = "https://tasty-tv.netlify.app/watch/deleteall/"
     const { cookies } = req
     const jwt = cookies.token
     const user = cookies.user
@@ -248,7 +248,7 @@ router.delete('/deleteall/:user', passport.authenticate("jwt", { session: false 
 
 
 router.patch('/requestcheckwatched/:id', async (req, res) => {
-    const endpoint = "https://tasty-tv-app.herokuapp.com/watch/checkwatched/"
+    const endpoint = "https://tasty-tv.netlify.app/watch/checkwatched/"
     const { cookies } = req
     const jwt = cookies.token
     const user = cookies.user
@@ -316,7 +316,7 @@ router.patch('/updatereview/:id/:user', async function (req, res) {
 
 
 router.delete('/requestremovewatched', async (req, res) => {
-    const endpoint = "https://tasty-tv-app.herokuapp.com/watch/removewatched/"
+    const endpoint = "https://tasty-tv.netlify.app/watch/removewatched/"
     const { cookies } = req
     const jwt = cookies.token
     const user = cookies.user

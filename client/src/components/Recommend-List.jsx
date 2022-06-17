@@ -35,7 +35,7 @@ function RecommendList(props) {
     const handleRecommendCall = async () => {
 
         try {
-            const endpoint = window.location.hostname === 'localhost' ? 'https://tasty-tv-app.herokuapp.com/recommend'
+            const endpoint = window.location.hostname === 'localhost' ? 'https://tasty-tv.netlify.app/recommend'
                 : '/recommend'
             await fetch(endpoint, requestOption).then(async (res) => {
                 const response = await res.json()

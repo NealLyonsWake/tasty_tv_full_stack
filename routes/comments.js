@@ -18,7 +18,7 @@ router.post('/requestcomment', async function (req, res) {
 
     if (jwt && user) {
 
-        const endpoint = "https://tasty-tv-app.herokuapp.com/comment/addcomment"
+        const endpoint = "https://tasty-tv.netlify.app/comment/addcomment"
 
         const requestOptions = {
             method: 'POST',
@@ -75,7 +75,7 @@ router.post('/addcomment', passport.authenticate("jwt", { session: false }), asy
     })
 
     router.get('/requestretrievecomments/:_id', async (req, res) => {
-        const endpoint = "https://tasty-tv-app.herokuapp.com/comment/retrievecomments/"
+        const endpoint = "https://tasty-tv.netlify.app/comment/retrievecomments/"
         const { cookies } = req
         const jwt = cookies.token
            

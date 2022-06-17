@@ -22,7 +22,7 @@ router.post('/requestreview', async function (req, res) {
 
         if (!checkExistingReview) {
 
-            const endpoint = "https://tasty-tv-app.herokuapp.com/review/addreview"
+            const endpoint = "https://tasty-tv.netlify.app/review/addreview"
 
             const requestOptions = {
                 method: 'POST',
@@ -60,7 +60,7 @@ router.post('/requestreview', async function (req, res) {
         }
 
         else {
-            const endpoint = "https://tasty-tv-app.herokuapp.com/review/amendreview/"
+            const endpoint = "https://tasty-tv.netlify.app/review/amendreview/"
 
             const requestOptions = {
                 method: 'PATCH',
@@ -117,7 +117,7 @@ router.post('/addreview', passport.authenticate("jwt", { session: false }), asyn
         });
         await review.save();
 
-        const endpoint = "https://tasty-tv-app.herokuapp.com/watch/updatereview/"
+        const endpoint = "https://tasty-tv.netlify.app/watch/updatereview/"
 
             const requestOptions = {
                 method: 'PATCH',
@@ -163,7 +163,7 @@ router.patch('/amendreview/:id/:author', passport.authenticate("jwt", { session:
         const review = await Review.where({ id: req.params.id, author: req.params.author }).update({ review: req.body.review });
         console.log(review)
         // return res.send(review);
-        const endpoint = "https://tasty-tv-app.herokuapp.com/watch/updatereview/"
+        const endpoint = "https://tasty-tv.netlify.app/watch/updatereview/"
 
         const requestOptions = {
             method: 'PATCH',
@@ -200,7 +200,7 @@ router.patch('/amendreview/:id/:author', passport.authenticate("jwt", { session:
 )
 
 router.get('/requestreviews', async (req, res) => {
-    const endpoint = "https://tasty-tv-app.herokuapp.com/review/retrieve/"
+    const endpoint = "https://tasty-tv.netlify.app/review/retrieve/"
     const { cookies } = req
     const jwt = cookies.token
     // const user = cookies.user
