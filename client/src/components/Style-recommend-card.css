@@ -13,16 +13,21 @@
 }
 
 .movCard {
-  flex: 2 0 15%;
+  flex: 1 0 ;
   margin: 2px;
   text-align: center;
-  border: 2px solid #0c1727ff;
-  padding: 10px;
+  /* border: 2px solid #0c1727ff; */
+  padding: 1px;
 }
 
 .poster{
   height: 278px;
   width: 185px;
+  border-radius: 10px;
+}
+
+.poster:hover{
+  cursor: pointer;
 }
 
 .title {
@@ -37,7 +42,7 @@
   }
 
   .movCard {
-    flex: 2 0 15%;
+    flex: 2 0 1%;
     margin: 2px 0px;
     padding: 0px 0px 20px 0px;
     border-right: 0px;

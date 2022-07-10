@@ -125,6 +125,8 @@ function WatchList(props) {
               toggleWatched={props.toggleWatched}
               deleteSingleMov={props.deleteSingleMov}
               reviews={props.reviews}
+              user_score={mov.user_score}
+              overview={mov.overview}
             />
           );
         })}

@@ -33,7 +33,9 @@ router.post('/requestmovie', async function (req, res) {
             poster: req.body.poster,
             watched: req.body.watched,
             review: req.body.review,
-            posted: req.body.posted
+            posted: req.body.posted,
+            user_score: req.body.user_score,
+            overview: req.body.overview
         })
     };
 
@@ -75,7 +77,9 @@ router.post('/addmovie', passport.authenticate("jwt", { session: false }), async
                 poster: req.body.poster,
                 watched: req.body.watched,
                 review: review,
-                posted: posted
+                posted: posted,
+                user_score: req.body.user_score,
+                overview: req.body.overview
             });
             await movie.save();
             res.status(200).json({ message: `Wow, you added the movie: ${req.body.name}, to your watch list!`});

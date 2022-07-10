@@ -83,6 +83,19 @@ function ReviewCard(props) {
   }
 }
 
+const handleCallDetails = async () => {
+
+  props.callDetails(
+      props.user,
+      props.id,
+      props.overview,
+      props.user_score,
+      props.title,
+      props.poster,
+      props.watched
+  );
+  }
+
   return (
     <div className="reviewCard">
       <div className="reviewHeading">
@@ -90,7 +103,7 @@ function ReviewCard(props) {
         <h5>{`Review by ${props.author}`}</h5>
       </div>
       <div className="reviewPoster">
-        <img className="poster" src={poster} alt={`Banner for the movie, ${title}`} />
+        <img className="poster" src={poster} onClick={handleCallDetails} alt={`Banner for the movie, ${title}`} />
       </div>
       <div className="reviewPost">
         <p>

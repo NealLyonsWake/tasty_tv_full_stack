@@ -233,7 +233,12 @@ function TopScreen() {
                 />
                 <Route
                     path="/reviews"
-                    element={<Reviews postedReviews={postedReviews} loggedIn={loggedIn} user={user} commentEdit={commentEdit} updateReviews={updateReviews} />}
+                    element={<Reviews 
+                        postedReviews={postedReviews} 
+                        loggedIn={loggedIn} 
+                        user={user} 
+                        commentEdit={commentEdit} 
+                        updateReviews={updateReviews} />}
 
                 />
                 <Route

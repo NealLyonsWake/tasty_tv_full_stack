@@ -8,7 +8,9 @@ let reviewSchema = new mongoose.Schema({
    watched: Boolean,
    review: String,
    posted: Boolean,
-   comment: String
+   comment: String,
+   user_score: Number,
+   overview: String
 });
 
 const Review = mongoose.model('Review', reviewSchema)

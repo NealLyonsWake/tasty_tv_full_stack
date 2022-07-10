@@ -105,7 +105,9 @@ function WatchCard(props) {
                         watched: props.watched,
                         review: props.review,
                         posted: props.posted,
-                        comment: ''
+                        comment: '',
+                        user_score: props.user_score,
+                        overview: props.overview
                     })
                 };
                 try {

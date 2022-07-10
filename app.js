@@ -1,58 +1,63 @@
-require('dotenv').config()
+require('dotenv').config();
 const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const express = require('express');
 const logger = require('morgan');
+const mongoose = require('mongoose');
+const path = require('path');
 const passport = require('passport');
-const cors = require('cors')
-const mongoose = require('mongoose')
-// const corsOptions = require('./middleware/cors')
 
-require('./middleware/auth')
+// Configure authentication middleware
+require('./middleware/auth'); 
 
+// Setup MongoDB
+const mongooseURI = process.env.MONGODB;
+mongoose.connect(mongooseURI);
 
-const mongooseURI = process.env.MONGODB
-mongoose.connect(mongooseURI)
-
+// Configure required application routes
 const indexRouter = require('./routes/index');
 const accountRouter = require('./routes/account');
 const watchRouter = require('./routes/watch');
-const reviewRouter = require('./routes/reviews')
-const commentRouter = require('./routes/comments')
+const reviewRouter = require('./routes/reviews');
+const commentRouter = require('./routes/comments');
 
+// Unpack express function into app
 const app = express();
 
-
-// Serve static file
+// Serve static initial file
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-
-// ** MIDDLEWARE ** //
-const whitelist = ['http://localhost:3000', 'http://localhost:4000', 'https://tasty-tv-app.herokuapp.com']
+/*
+Configure Cors origin middleware below.
+Partly set up to account for a work around to be able to exchange cookies between the back-end and the client.
+This is due to Heroku being on the Public Suffix List and therefore different origins
+of *.herokuapp.com will not be able to exchange cookies.
+*/
+const whitelist = ['http://localhost:3000', 'http://localhost:4000', 'https://tasty-tv-app.herokuapp.com'];
 const corsOptions = {
   origin: function (origin, callback) {
-    console.log("** Origin of request " + origin)
+    console.log("Origin of request" + origin);
     if (whitelist.indexOf(origin) !== -1 || !origin) {
-      console.log("Origin acceptable")
-      callback(null, true)
+      console.log("Origin acceptable");
+      callback(null, true);
     } else {
-      console.log("Origin rejected")
-      callback(new Error('Not allowed by CORS'))
+      console.log("Origin rejected");
+      callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true
-}
+};
+app.use(cors(corsOptions));
 
-app.use(cors(corsOptions))
-
+// Configure other
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser())
-app.set('trust proxy', 1)
+app.use(cookieParser());
+app.set('trust proxy', 1);
 
-// Handle all routes
+// Configure all routes
 app.use('/', indexRouter);
 app.use('/account', accountRouter);
 app.use('/watch', watchRouter);
@@ -63,15 +68,15 @@ app.get('*', function(req, res) {
 });
 
 // Initialise passport
-app.use(passport.initialize)
+app.use(passport.initialize);
 
-// catch 404 and forward to error handler
+// Catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // Error handler
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res, next) {  
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
