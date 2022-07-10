@@ -1,24 +1,21 @@
 const express = require('express');
 const passport = require('passport');
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-
 const { Comment } = require('../models/comment');
-
 const router = express.Router();
-
 const usersRouter = require('./account');
-router.use(usersRouter)
 
+router.use(usersRouter);
 
 router.post('/requestcomment', async function (req, res) {
 
-    const { cookies } = req
-    const jwt = cookies.token
-    const user = cookies.user
+    const { cookies } = req;
+    const jwt = cookies.token;
+    const user = cookies.user;
 
     if (jwt && user) {
 
-        const endpoint = "https://tasty-tv-app.herokuapp.com/comment/addcomment"
+        const endpoint = "https://tasty-tv-app.herokuapp.com/comment/addcomment";
 
         const requestOptions = {
             method: 'POST',
@@ -33,28 +30,26 @@ router.post('/requestcomment', async function (req, res) {
                 user: user,
                 comment: req.body.comment          
             })
-        }
+        };
 
         try {
-            callToApi = await fetch(endpoint, requestOptions)
-            const response = await callToApi.json()
+            callToApi = await fetch(endpoint, requestOptions);
+            const response = await callToApi.json();
             res.status(200).json({
                 message: response.message
-            })
+            });
         }
-
         catch (e) {
-            console.log(e, "Error connecting to server")
-        }
+            console.log(e, "Error connecting to server");
+        };
 
     }
     else {
         res.status(401).json({
             message: "Oops! It looks like you need to sign in!"
-        })
-    }
-})
-
+        });
+    };
+});
 
 router.post('/addcomment', passport.authenticate("jwt", { session: false }), async function (req, res) {
 
@@ -71,13 +66,14 @@ router.post('/addcomment', passport.authenticate("jwt", { session: false }), asy
             res.status(400).json({
                 message: `Oh dear, ${err}.`
             });
-        }  
-    })
+        };  
+    });
 
     router.get('/requestretrievecomments/:_id', async (req, res) => {
-        const endpoint = "https://tasty-tv-app.herokuapp.com/comment/retrievecomments/"
-        const { cookies } = req
-        const jwt = cookies.token
+
+        const endpoint = "https://tasty-tv-app.herokuapp.com/comment/retrievecomments/";
+        const { cookies } = req;
+        const jwt = cookies.token;
            
         const requestOptions = {
             method: 'GET',
@@ -87,13 +83,14 @@ router.post('/addcomment', passport.authenticate("jwt", { session: false }), asy
                 'Content-Type': 'application/json',
                 'Authorization': `jwt ${jwt}`
             }
-        }
+        };
+
         if (jwt) {
     
             try {
-                callToApi = await fetch(`${endpoint}${req.params._id}`, requestOptions)
-                const response = await callToApi.json()
-                res.send(response)
+                callToApi = await fetch(`${endpoint}${req.params._id}`, requestOptions);
+                const response = await callToApi.json();
+                res.send(response);
             }
     
             catch (e) {
@@ -121,8 +118,5 @@ router.post('/addcomment', passport.authenticate("jwt", { session: false }), asy
             )
         }
     });
-
-
-
 
 module.exports = router;

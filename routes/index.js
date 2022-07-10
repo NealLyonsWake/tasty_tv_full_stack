@@ -3,21 +3,21 @@ const express = require('express');
 const router = express.Router();
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-const apiKey = process.env.API_KEY
+const apiKey = process.env.API_KEY;
 
-let IMAGE_BASE
-let IMAGE_SIZE
-let pageNumber = Math.floor(Math.random() * 500) + 1
+let IMAGE_BASE;
+let IMAGE_SIZE;
+let pageNumber = Math.floor(Math.random() * 500) + 1;
 
 const config = async () => {
   const configReply = await fetch(`https://api.themoviedb.org/3/configuration?api_key=${apiKey}`,
     { method: 'GET' }
   )
-  const configReplyJSON = await configReply.json()
-  const images = configReplyJSON.images
-  const { base_url, poster_sizes } = images
-  IMAGE_BASE = base_url
-  IMAGE_SIZE = poster_sizes[2]
+  const configReplyJSON = await configReply.json();
+  const images = configReplyJSON.images;
+  const { base_url, poster_sizes } = images;
+  IMAGE_BASE = base_url;
+  IMAGE_SIZE = poster_sizes[2];
 }
 
 router.get(`/recommend`, async function (req, res) {
@@ -37,14 +37,13 @@ router.get(`/recommend`, async function (req, res) {
       overview: item.overview,
       user_score: item.vote_average
     }
-  })
+  });
   pageNumber = Math.floor(Math.random() * 500) + 1;
-  res.send(movieSend)
+  res.send(movieSend);
 }
 catch (e){
   res.send(e, "Unable to retrieve An error happend during recommend request")
 }
 });
-
 
 module.exports = router;
