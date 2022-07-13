@@ -364,5 +364,4 @@ router.delete('/removewatched/:user', passport.authenticate("jwt", { session: fa
     }
 });
 
-
 module.exports = router;
